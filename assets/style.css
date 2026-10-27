@@ -191,3 +191,7 @@ footer {
     margin-top: 5px;
   }
 }
+
+.paper + .paper {
+  margin-top: 20px;
+}
