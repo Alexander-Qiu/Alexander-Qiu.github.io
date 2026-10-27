@@ -1,282 +1,184 @@
-<!DOCTYPE html>
-<html lang="zh-Hans">
+<!doctype html>
+<html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>挑战谁是「清华制霸」？</title>
-    <meta name="description" content="清华制霸，地图生成器" />
-    <meta name="keywords" content="清华制霸,清华制霸地图生成器,清华地图" />
-		<link rel="shortcut icon" href="favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="document.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Alexander Qiu</title>
+    <meta
+      name="description"
+      content="Ruizhi Qiu (Alexander), AI infrastructure engineer at SiliconFlow."
+    />
+    <meta name="theme-color" content="#fafafa" />
+    <link rel="canonical" href="https://Alexander-Qiu.github.io/" />
+    <meta property="og:title" content="Alexander Qiu" />
+    <meta
+      property="og:description"
+      content="AI infrastructure engineer at SiliconFlow."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://Alexander-Qiu.github.io/" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <script src="assets/app.js" defer></script>
   </head>
   <body>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1134 976">
-      <style></style>
-      <style>
-        text {
-          font-family: slice,sans-serif;
-          fill: #111;
-          font-size: 30px;
-        }
-        #title {
-          font-size: 60px;
-        }
-        #分数 {
-          font-size: 60px;
-        }
-        #地区 path,
-        #地区 rect,
-        polyline {
-          fill-rule: evenodd;
-          clip-rule: evenodd;
-          stroke: #000;
-          stroke-width: 4;
-          stroke-linecap: round;
-          stroke-linejoin: round;
-        }
-        #地区 path,
-        #地区 rect {
-          fill: #fff;
-          cursor: pointer;
-          pointer-events: auto;
-        }
-        polyline {
-          fill: none;
-          pointer-events: none;
-        }
-        #地区 > *[level="5"] {
-          fill: #ff7e7e;
-        }
-        #地区 > *[level="4"] {
-          fill: #ffb57e;
-        }
-        #地区 > *[level="3"] {
-          fill: #ffe57e;
-        }
-        #地区 > *[level="2"] {
-          fill: #a8ffbe;
-        }
-        #地区 > *[level="1"] {
-          fill: #88aeff;
-        }
-        .level-border {
-          fill-rule: evenodd;
-          clip-rule: evenodd;
-          fill: none;
-          stroke: #000000;
-          stroke-width: 4;
-          stroke-linecap: round;
-          stroke-linejoin: round;
-          stroke-miterlimit: 10;
-        }
-      </style>
-      <text x="843" y="109" id="title">清华制霸</text>
-      <g id="地区">
-        <path id="西湖游泳池" d="M231.4,742.9h105.8v-47.8H231.4V742.9z"/>
-        <path id="甲所" d="M352.9,695.1H405v-50h-52.1V695.1z"/>
-        <path id="系馆区" d="M507.6,889h276.9l110.7-102.3l-110.7-1.6v-38.2H507.6V889z"/>
-        <path id="系馆区" d="M432.2,728.9h122v-83.8h-122V728.9z"/>
-        <path id="校医院" d="M186.4,618.7h62.7V472.3h-62.7V618.7z"/>
-        <path id="近春园" d="M186.4,695.2h62.7v-76.5h-62.7V695.2z"/>
-        <path id="荷塘" d="M249.1,695.2h62.7v-76.5h-62.7L249.1,695.2L249.1,695.2z"/>
-        <path id="荷园" d="M249.1,618.7h62.7v-25.2h-62.7L249.1,618.7L249.1,618.7z"/>
-        <path id="水木清华" d="M311.9,618.7H405V570h-93.2v48.7H311.9z"/>
-        <path id="照澜院" d="M442,833.7h112.2V728.9H442V833.7z"/>
-        <path id="图书馆总馆" d="M384.9,570H464v25.3h70V442.1H385V570H384.9z"/>
-        <path id="大礼堂" d="M405,618.7h59V570h-59V618.7z"/>
-        <path id="清华学堂" d="M454.6,644.1h46.5v-48.7h-46.5V644.1z"/>
-        <path id="日晷" d="M418.6,644.1h36v-25.3h-36V644.1z"/>
-        <path id="二教" d="M379.2,645.1h39.5v-26.3h-39.5V645.1z"/>
-        <path id="工字厅" d="M311.9,645.1h67.3v-26.3h-67.3L311.9,645.1L311.9,645.1z"/>
-        <path id="熙春园" d="M311.9,695.2h41v-50.1h-41V695.2z"/>
-        <path id="宿舍区" d="M591.5,346.7 591.5,426.2 533.9,426.2 533.9,409.7 475.1,409.7 475.1,442.1 
-          384.9,442.1 384.9,198 509,198 509,346.7 475.1,346.7 475.1,379.8 533.9,379.8 533.9,346.7z"/>
-        <path id="一教" d="M405,695.2h27.2v-50.1H405V695.2z"/>
-        <path id="招办" d="M361.1,728.9H405v-33.7h-43.9V728.9z"/>
-        <path id="二校门" d="M405,728.9h59v-33.7h-59V728.9z"/>
-        <path id="新清华学堂" d="M554.2,746.8H642V655h-87.8V746.8z"/>
-        <path id="主楼" d="M642.1,746.8h142.4V655H642.1V746.8z"/>
-        <path id="艺博" d="M784.5,786.7h110.7V673.1H784.5V786.7z"/>
-        <path id="系馆区" d="M784.5,673.1h110.7V313.7H784.5V673.1z"/>
-        <path id="双清" class="st12" d="M913.8,349h36.6v-75.7h-36.6V349z"/>
-        <path id="五道口金融学院" d="M784.5,946.1h81.4v-39.7h-81.4V946.1z"/>
-        <path id="综体" d="M642.1,655h142.4V555H642.1V655z"/>
-        <path id="东操" d="M703.6,555h80.9V455h-80.9V555z"/>
-        <path id="陈明游泳馆" d="M642.1,455h142.4v-94.2H642.1V455z"/>
-        <path id="雕塑园" d="M707.2,390.5h77.3v-76.8h-77.3V390.5z"/>
-        <path id="东区篮球场" d="M642.1,505h61.5v-50h-61.5V505z"/>
-        <path id="东区排球场" d="M642.1,555h61.5v-50h-61.5V555z"/>
-        <path id="六教" d="M586.7,655H642v-59.6h-55.3V655z"/>
-        <path id="三教" d="M554.2,655h32.5v-59.6h-32.5V655z"/>
-        <path id="五教" d="M501.2,619.7h53.1v-24.3h-53.1L501.2,619.7L501.2,619.7z"/>
-        <path id="四教" d="M501.2,644.6h53.1v-24.3h-53.1L501.2,644.6L501.2,644.6z"/>
-        <path id="文图" d="M533.9,595.4H642v-57.9H533.9V595.4z"/>
-        <path id="南区宿舍区" d="M533.9,537.4H642v-70.7H533.9V537.4z"/>
-        <rect id="清芬" x="533.9" y="426.2" class="st12" width="57.6" height="40.5"/>
-        <path id="苏世民书院" d="M591.5,466.7h50.6v-153h-50.6V466.7z"/>
-        <rect id="情人坡" x="459.5" y="442.3" class="st12" width="74.5" height="51.1"/>
-        <rect id="C楼" x="509" y="198" class="st12" width="82.5" height="148.7"/>
-        <rect id="丁香" x="475.1" y="346.7" class="st12" width="58.8" height="33.1"/>
-        <rect id="听涛" x="475.1" y="409.7" class="st12" width="58.8" height="32.4"/>
-        <path id="空地" d="M546.8,313.7h44.7v-80.8h-44.7V313.7z"/>
-        <path id="西操" d="M311.9,570h73V442h-73V570z"/>
-        <path id="观畴" d="M311.9,442.1h73v-69.4h-73V442.1z"/>
-        <path id="系馆区4" d="M249.1,593.5h62.7V372.6l-62.7,66L249.1,593.5L249.1,593.5z"/>
-        <path id="西体" d="M286.3,524.8h25.6v-43.3h-25.6V524.8z"/>
-        <path id="足球场" d="M642.1,360.8h65.1v-47.1h-65.1V360.8z"/>
-        <path id="宿舍区" d="M784.5,313.7h110.7v-84.8L813,144v54h-28.5V313.7z"/>
-        <rect id="紫操" x="591.5" y="198" class="st12" width="83.1" height="115.7"/>
-        <rect id="紫荆网球场" x="674.6" y="198" class="st12" width="109.8" height="57.9"/>
-        <rect id="紫荆篮球场" x="674.6" y="255.9" class="st12" width="109.8" height="57.9"/>
-        <rect id="宿舍区" x="477.6" y="145.6" class="st12" width="281.4" height="52.4"/>
-        <rect id="紫荆" x="591.5" y="88.3" class="st12" width="82.7" height="57.3"/>
-        <rect id="玉树" x="674.6" y="88.3" class="st12" width="84.4" height="57.3"/>
-        <path id="气膜馆" d="M707.5,35.1 759,88.3 674.6,88.3 674.6,35.1z"/>
-        <path id="芝兰" d="M813,144 813,198 759,198 759,88.3z"/>
-        <path id="桃李" d="M591.6,88.3 591.6,145.6 477.6,145.6 534.9,88.3z"/>
-       <g id="地名">
-        <text transform="matrix(1 0 0 1 469.7002 474.8451)" style="font-size: 20px">情人坡</text>
-        <text transform="matrix(1 0 0 1 289.9007 499.4907)" style="font-size: 17px">西</text>
-        <text transform="matrix(1 0 0 1 289.9007 519.4907)" style="font-size: 17px">体</text>
-        <text transform="matrix(1 0 0 1 203.3906 524.2982)" >校</text>
-        <text transform="matrix(1 0 0 1 203.3906 554.2982)" >医</text>
-        <text transform="matrix(1 0 0 1 203.3906 584.2982)" >院</text>
-        <text transform="matrix(1 0 0 1 253.6276 474.2986)" >系</text>
-        <text transform="matrix(1 0 0 1 253.6276 504.2986)" >馆</text>
-        <text transform="matrix(1 0 0 1 253.6276 534.2986)" >区</text>
-        <text transform="matrix(1 0 0 1 192.2801 650.1251)" style="font-size: 25px">近春</text>
-        <text transform="matrix(1 0 0 1 205.7801 680.1251)" style="font-size: 25px">园</text>
-        <text transform="matrix(1 0 0 1 262.9934 612.5397)" style="font-size: 17px">荷园</text>
-        <text transform="matrix(1 0 0 1 255.0115 670.1097)" style="font-size: 25px">荷塘</text>
-        <text transform="matrix(1 0 0 1 319.2019 638.0002)" style="font-size: 17px">工字厅</text>
-        <text transform="matrix(1 0 0 1 381.8912 638.0002)" style="font-size: 17px">二教</text>
-        <text transform="matrix(1 0 0 1 418.6391 638.0002)" style="font-size: 17px">日晷</text>
-        <text transform="matrix(1 0 0 1 458.907 615.431)" style="font-size: 20px">清华</text>
-        <text transform="matrix(1 0 0 1 458.907 637.431)" style="font-size: 20px">学堂</text>
-        <text transform="matrix(1 0 0 1 397.4156 540.9224)" style="font-size: 25px">图书馆总馆</text>
-        <text transform="matrix(1 0 0 1 332.3921 494.2986)" >西</text>
-        <text transform="matrix(1 0 0 1 333.3921 524.2986)" >操</text>
-        <text transform="matrix(1 0 0 1 320.5801 601.679)" style="font-size: 20px">水木清华</text>
-        <text transform="matrix(1 0 0 1 408.6606 590.0003)" style="font-size: 20px">大礼堂</text>
-        <text transform="matrix(1 0 0 1 510.7036 613.5394)" style="font-size: 17px">五教</text>
-        <text transform="matrix(1 0 0 1 510.7037 638.9999)" style="font-size: 17px">四教</text>
-        <text transform="matrix(1 0 0 1 562.4908 619.5199)" style="font-size: 17px">三</text>
-        <text transform="matrix(1 0 0 1 562.4908 639.5199)" style="font-size: 17px">教</text>
-        <text transform="matrix(1 0 0 1 595.405 631.3768)" style="font-size: 20px">六教</text>
-        <text transform="matrix(1 0 0 1 684.7609 617.1138)" >综体</text>
-        <text transform="matrix(1 0 0 1 684.761 712.0217)" >主楼</text>
-        <text transform="matrix(1 0 0 1 561.202 696.0479)" style="font-size: 25px">新清华</text>
-        <text transform="matrix(1 0 0 1 574.702 726.0479)" style="font-size: 25px">学堂</text>
-        <text transform="matrix(1 0 0 1 451.233 682.5413)" >系馆区</text>
-        <text transform="matrix(1 0 0 1 632.22 830.0656)" >系馆区</text>
-        <text transform="matrix(1 0 0 1 795.6344 937.0001)" >五金</text>
-        <text transform="matrix(1 0 0 1 824.7283 467.4583)" >系</text>
-        <text transform="matrix(1 0 0 1 824.7283 497.4583)" >馆</text>
-        <text transform="matrix(1 0 0 1 824.7283 527.4583)" >区</text>
-        <text transform="matrix(1 0 0 1 811.4771 742.9199)" >艺博</text>
-        <text transform="matrix(1 0 0 1 454.6469 792.5988)" >照澜院</text>
-        <text transform="matrix(1 0 0 1 407.0375 719.0439)" style="font-size: 17px">二校门</text>
-        <text transform="matrix(1 0 0 1 366.2883 719.0443)" style="font-size: 17px">招办</text>
-        <text transform="matrix(1 0 0 1 371.4848 664.674)" style="font-size: 17px">甲</text>
-        <text transform="matrix(1 0 0 1 371.4848 684.674)" style="font-size: 17px">所</text>
-        <text transform="matrix(1 0 0 1 409.6607 664.6742)" style="font-size: 17px">一</text>
-        <text transform="matrix(1 0 0 1 409.6607 684.6742)" style="font-size: 17px">教</text>
-        <text transform="matrix(1 0 0 1 315.5289 664.6742)" style="font-size: 17px">熙春</text>
-        <text transform="matrix(1 0 0 1 324.5289 684.6742)" style="font-size: 17px">园</text>
-        <text transform="matrix(1 0 0 1 235.2567 726.4498)" style="font-size: 20px">西湖游泳池</text>
-        <text transform="matrix(1 0 0 1 326.8919 415)" style="font-size: 20px">观畴</text>
-        <text transform="matrix(1 0 0 1 485.0049 434)" style="font-size: 20px">听涛</text>
-        <text transform="matrix(1 0 0 1 485.005 370)" style="font-size: 20px">丁香</text>
-        <text transform="matrix(1 0 0 1 544 454)" style="font-size: 20px">清芬</text>
-        <text transform="matrix(1 0 0 1 518.6364 269)" >C</text>
-        <text transform="matrix(1 0 0 1 512.7364 298.4389)" >楼</text>
-        <text transform="matrix(1 0 0 1 405.7439 288.9007)" >宿舍区</text>
-        <text transform="matrix(1 0 0 1 591.0619 182.256)" >宿舍区</text>
-        <text transform="matrix(1 0 0 1 797.7798 265.3372)" >宿舍区</text>
-        <text transform="matrix(1 0 0 1 604.5618 265.337)" >紫操</text>
-        <text transform="matrix(1 0 0 1 680.5333 293.5198)" style="font-size: 20px">紫荆篮球场</text>
-        <text transform="matrix(1 0 0 1 680.5334 232.8983)" style="font-size: 20px">紫荆网球场</text>
-        <text transform="matrix(1 0 0 1 655.6138 474.3416)" style="font-size: 17px">东区</text>
-        <text transform="matrix(1 0 0 1 646.6138 494.3416)" style="font-size: 17px">篮球场</text>
-        <text transform="matrix(1 0 0 1 656.2193 523.96)" style="font-size: 17px">东区</text>
-        <text transform="matrix(1 0 0 1 647.2193 543.96)" style="font-size: 17px">排球场</text>
-        <text transform="matrix(1 0 0 1 717.306 513.9265)" >东操</text>
-        <text transform="matrix(1 0 0 1 560.9499 496.0002)" >南区</text>
-        <text transform="matrix(1 0 0 1 547.4499 526.0002)" >宿舍区</text>
-        <text transform="matrix(1 0 0 1 558.242 576.3682)" >文图</text>
-        <text transform="matrix(1 0 0 1 648.6135 344.8067)" style="font-size: 17px">足球场</text>
-        <text transform="matrix(1 0 0 1 650 431.8824)" style="font-size: 25px">陈明游泳馆</text>
-        <text transform="matrix(1 0 0 1 735.8057 338.1398)" style="font-size: 20px">雕</text>
-        <text transform="matrix(1 0 0 1 735.8057 358.1398)" style="font-size: 20px">塑</text>
-        <text transform="matrix(1 0 0 1 735.8057 378.1398)" style="font-size: 20px">园</text>
-        <text transform="matrix(1 0 0 1 917.1271 305.0709)" >双</text>
-        <text transform="matrix(1 0 0 1 917.1271 335.0709)" >清</text>
-        <text transform="matrix(1 0 0 1 771.4532 151.2207)" style="font-size: 25px">芝</text>
-        <text transform="matrix(1 0 0 1 771.4532 181.2207)" style="font-size: 25px">兰</text>
-        <text transform="matrix(1 0 0 1 678.8392 80.0997)" style="font-size: 20px">气膜馆</text>
-        <text transform="matrix(1 0 0 1 525.7452 129.4147)" style="font-size: 25px">桃李</text>
-        <text transform="matrix(1 0 0 1 608.5618 129.4146)" style="font-size: 25px">紫荆</text>
-        <text transform="matrix(1 0 0 1 692.32 129.4145)" style="font-size: 25px">玉树</text>
-        <text transform="matrix(1 0 0 1 606.8342 346.3176)" style="font-size: 20px">苏</text>
-        <text transform="matrix(1 0 0 1 606.8342 370.3176)" style="font-size: 20px">世</text>
-        <text transform="matrix(1 0 0 1 606.8342 394.3176)" style="font-size: 20px">民</text>
-        <text transform="matrix(1 0 0 1 606.8342 418.3176)" style="font-size: 20px">书</text>
-        <text transform="matrix(1 0 0 1 606.8342 442.3176)" style="font-size: 20px">院</text>
-      </g>
-      <text id="ThusLab1" x="270" y="1000" style="font-size: 20px">本地图仅供娱乐，空间有限无法涵盖和准确还原所有地点，请谅解</text>
-      <text id="ThusLab" x="37" y="937" style="font-size: 24px">小五爷园出品</text>
-      <text id="分数" x="35" y="883">分数</text>
-    </g>
-    <g id="等级">
-      <path id="全区域" d="M269.7,35.1 269.7,324.4 135.9,473.3 135.9,786.9 292.2,786.9 292.2,948 555.3,948 
-      555.3,889 507.6,889 507.6,833.7 442,833.7 442,728.9 361.1,728.9 361.1,695.2 337.2,695.2 337.2,742.9 231.4,742.9 231.4,695.2 
-      186.4,695.2 186.4,472.3 249.1,472.3 249.1,438.6 311.9,372.6 384.9,372.6 384.9,198 477.6,198 477.6,145.6 534.9,88.3 674.2,88.3 
-      674.2,35.1z" fill="#A7A7A7"/>
-      <path id="全区域" d="M269.7,35.1 269.7,324.4 135.9,473.3 135.9,786.9 292.2,786.9 292.2,948 555.3,948 
-      555.3,889 507.6,889 507.6,833.7 442,833.7 442,728.9 361.1,728.9 361.1,695.2 337.2,695.2 337.2,742.9 231.4,742.9 231.4,695.2 
-      186.4,695.2 186.4,472.3 249.1,472.3 249.1,438.6 311.9,372.6 384.9,372.6 384.9,198 477.6,198 477.6,145.6 534.9,88.3 674.2,88.3 
-      674.2,35.1z" class="level-border"/>
-      <rect x="983" y="450" width="120" height="50" fill="#FF7E7E"/>
-      <rect x="983" y="500" width="120" height="50" fill="#FFB57E"/>
-      <rect x="983" y="550" width="120" height="50" fill="#FFE57E"/>
-      <rect x="983" y="600" width="120" height="50" fill="#A8FFBE"/>
-      <rect x="983" y="650" width="120" height="50" fill="#88AEFF"/>
-      <rect x="983" y="700" width="120" height="50" fill="#FFFFFF"/>
-      <rect x="983" y="450" class="level-border" width="120" height="300" />
-      <text x="1000" y="484" style="font-size: 24px">居住５</text>
-      <text x="1000" y="535" style="font-size: 24px">常去４</text>
-      <text x="1000" y="585" style="font-size: 24px">偶尔去３</text>
-      <text x="1000" y="635" style="font-size: 24px">有时去２</text>
-      <text x="1000" y="685" style="font-size: 24px">路过１</text>
-      <text x="998" y="735" style="font-size: 24px">没去过</text>
-    </g>
-    </svg>
-    <div id="设置等级">
-      <h2>地区</h2>
-      <a data-level="5">居住</a>
-      <a data-level="4">常去</a>
-      <a data-level="3">偶尔去</a>
-      <a data-level="2">有时去</a>
-      <a data-level="1">路过</a>
-      <a data-level="0">没听说</a>
+    <a class="skip" href="#main">Skip to content</a>
+    <div class="page">
+      <header>
+        <a class="home" href="#">Alexander Qiu</a>
+        <div class="controls">
+          <button id="language" type="button" aria-label="Switch to Chinese">
+            中文</button
+          ><button id="theme" type="button" aria-label="Switch color theme">
+            ◐
+          </button>
+        </div>
+      </header>
+      <main id="main">
+        <section class="intro">
+          <h1>Alexander Qiu <span lang="zh-CN">邱睿智</span></h1>
+          <p
+            data-en="AI infrastructure engineer at SiliconFlow, based in Beijing."
+            data-zh="目前在 SiliconFlow 做 AI Infra，常驻北京。"
+          >
+            AI infrastructure engineer at SiliconFlow, based in Beijing.
+          </p>
+          <p
+            data-en="I work on inference engines and serving systems. Previously, I worked at China Unicom’s Intelligent Computing Capability Center and interned at Enflame and 4Paradigm. I studied at Beihang University."
+            data-zh="主要做推理引擎和服务系统。此前在中国联通智算能力中心工作，在燧原科技和第四范式实习，本硕就读于北京航空航天大学。"
+          >
+            I work on inference engines and serving systems. Previously, I
+            worked at China Unicom’s Intelligent Computing Capability Center and
+            interned at Enflame and 4Paradigm. I studied at Beihang University.
+          </p>
+          <div class="links">
+            <a href="https://github.com/Alexander-Qiu">GitHub</a
+            ><a
+              href="https://scholar.google.com/citations?user=gqi0igQAAAAJ&amp;hl=en"
+              >Google Scholar</a
+            >
+          </div>
+        </section>
+        <section id="experience">
+          <h2 data-en="Experience" data-zh="经历">Experience</h2>
+          <div class="entry">
+            <span
+              data-en="2026.08 — present"
+              data-zh="2026.08 — 至今"
+              class="date"
+              >2026.08 — present</span
+            >
+            <div>
+              <h3 data-en="SiliconFlow" data-zh="SiliconFlow">SiliconFlow</h3>
+              <p data-en="AI Infrastructure Engineer" data-zh="AI Infra 工程师">
+                AI Infrastructure Engineer
+              </p>
+            </div>
+          </div>
+          <div class="entry">
+            <span data-en="2025 — 2026" data-zh="2025 — 2026" class="date"
+              >2025 — 2026</span
+            >
+            <div>
+              <h3 data-en="China Unicom" data-zh="中国联通">China Unicom</h3>
+              <p
+                data-en="Intelligent Computing Capability Center · AI Infrastructure Engineer"
+                data-zh="智算能力中心 · AI Infra 工程师"
+              >
+                Intelligent Computing Capability Center · AI Infrastructure
+                Engineer
+              </p>
+            </div>
+          </div>
+          <div class="entry">
+            <span
+              data-en="2023.04 — 2025.05"
+              data-zh="2023.04 — 2025.05"
+              class="date"
+              >2023.04 — 2025.05</span
+            >
+            <div>
+              <h3 data-en="Enflame Technology" data-zh="燧原科技">
+                Enflame Technology
+              </h3>
+              <p
+                data-en="Digital IC design / verification intern"
+                data-zh="数字芯片设计 / 验证实习生"
+              >
+                Digital IC design / verification intern
+              </p>
+            </div>
+          </div>
+          <div class="entry">
+            <span
+              data-en="2022.03 — 2023.01"
+              data-zh="2022.03 — 2023.01"
+              class="date"
+              >2022.03 — 2023.01</span
+            >
+            <div>
+              <h3 data-en="4Paradigm" data-zh="第四范式">4Paradigm</h3>
+              <p data-en="Software development intern" data-zh="软件开发实习生">
+                Software development intern
+              </p>
+            </div>
+          </div>
+        </section>
+        <section id="education">
+          <h2 data-en="Education" data-zh="教育">Education</h2>
+          <div class="entry">
+            <span class="date">2022 — 2025</span>
+            <div>
+              <h3 data-en="Beihang University" data-zh="北京航空航天大学">
+                Beihang University
+              </h3>
+              <p
+                data-en="Master’s · Electronic Science and Technology"
+                data-zh="硕士 · 电子科学与技术"
+              >
+                Master’s · Electronic Science and Technology
+              </p>
+            </div>
+          </div>
+          <div class="entry">
+            <span class="date">2018 — 2022</span>
+            <div>
+              <h3 data-en="Beihang University" data-zh="北京航空航天大学">
+                Beihang University
+              </h3>
+              <p
+                data-en="Bachelor’s · Electronic Information and Technology"
+                data-zh="本科 · 电子信息与技术"
+              >
+                Bachelor’s · Electronic Information and Technology
+              </p>
+            </div>
+          </div>
+        </section>
+        <section id="publications">
+          <h2 data-en="Publications" data-zh="论文">Publications</h2>
+          <article class="paper">
+            <a href="https://arxiv.org/abs/2606.22883"
+              >CLI-Universe: Towards Verifiable Task Synthesis Engine for
+              Terminal Agents</a
+            >
+            <p
+              data-en="Co-author · arXiv preprint, 2026"
+              data-zh="共同作者 · arXiv 预印本，2026"
+            >
+              Co-author · arXiv preprint, 2026
+            </p>
+          </article>
+          <a
+            class="scholar"
+            href="https://scholar.google.com/citations?user=gqi0igQAAAAJ&amp;hl=en"
+            ><span data-en="Google Scholar →" data-zh="Google Scholar →"
+              >Google Scholar →</span
+            ></a
+          >
+        </section>
+      </main>
+      <footer>© <span id="year">2026</span> Alexander Qiu</footer>
     </div>
-    <footer>
-      <a id="保存" class="按钮">保存成图片</a>
-    </footer>
-    <div id="输出图像" style="display: none">
-      <div>
-        <img />
-      </div>
-      <p>
-        手机端可长按图片
-        <b>“添加到照片”</b>
-      </p>
-      <div>
-        <a class="按钮">关闭</a>
-      </div>
-    </div>
-    <script src="document.js"></script>
   </body>
 </html>
-
